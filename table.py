@@ -22,31 +22,23 @@ def get_table(span, weight ,cantenery, height):
     def generate_values_list(x):
         values = []
 
-        if x <= 10:
-            step_size = 1
-        elif x <= 100:
-            step_size = 10
-        else:
-            step_size = 100
-
-        for i in range(4, 0, -1):  # Generate values to the left
-            values.append(x - (i * step_size))
-        values.append(x)
+        for i in range(0, x + 1, 10):
+            values.append(i)
 
         return values
 
-    print(generate_values_list(height))
+    length = len(generate_values_list(height))
 
     df = pd.DataFrame({
         'h': generate_values_list(height),
-        'Xr': [0] * 5,
-        'XL': [0] * 5,
-        'Yr': [0] * 5,
-        'YL': [0] * 5,
-        'Vr': [0] * 5,
-        'VL': [0] * 5,
-        'Tr': [0] * 5,
-        'TL': [0] * 5,
+        'Xr': [0] * length,
+        'XL': [0] * length,
+        'Yr': [0] * length,
+        'YL': [0] * length,
+        'Vr': [0] * length,
+        'VL': [0] * length,
+        'Tr': [0] * length,
+        'TL': [0] * length,
     })
     
     # Apply the calculation to each row
