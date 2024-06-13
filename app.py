@@ -32,9 +32,6 @@ class Parametrization(ViktorParametrization):
     page_1.height = NumberField('4.Input the height lenght',flex=100,min=0)
     page_1.lb4 = LineBreak()
     page_1.download_btn = DownloadButton('Download Report',flex=30,longpoll=True, method='download_file')    
-    # page_1.lb5 = LineBreak()
-
-    # page_1.manual=DownloadButton("User Guide", "get_user_manual", longpoll=True, flex=30, description='App user guide')
 
 
 class Controller(ViktorController):
