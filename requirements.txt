@@ -1,3 +1,4 @@
 viktor==14.10.0
 sympy
 openpyxl
+plotly

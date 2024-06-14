@@ -11,6 +11,7 @@ def generate_values(s, k, w, h):
         'XL': comp.xL,
         'Yr': comp.y_xR,
         'YL': comp.y_xL,
+        'L_T': comp.L_T,
         'Vr': comp.V_R,
         'VL': comp.V_L,
         'Tr': comp.T_R,
@@ -22,7 +23,7 @@ def get_table(span, weight ,cantenery, height):
     def generate_values_list(x):
         values = []
 
-        for i in range(0, x + 1, 10):
+        for i in range(0, x + 1, 5):
             values.append(i)
 
         return values
@@ -35,6 +36,7 @@ def get_table(span, weight ,cantenery, height):
         'XL': [0] * length,
         'Yr': [0] * length,
         'YL': [0] * length,
+        'L_T': [0] * length,
         'Vr': [0] * length,
         'VL': [0] * length,
         'Tr': [0] * length,
@@ -49,6 +51,7 @@ def get_table(span, weight ,cantenery, height):
         df.at[index, 'XL'] = values['XL']
         df.at[index, 'Yr'] = values['Yr']
         df.at[index, 'YL'] = values['YL']
+        df.at[index, 'L_T'] = values['L_T']
         df.at[index, 'Vr'] = values['Vr']
         df.at[index, 'VL'] = values['VL']
         df.at[index, 'Tr'] = values['Tr']

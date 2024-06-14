@@ -11,6 +11,7 @@ from viktor.errors import UserError, InputViolation
 from table import get_table
 import io
 import pandas as pd
+from graph import get_graph
 
 
 entity_folder_path =os.path.dirname(__file__)  # entity_type_a
@@ -46,16 +47,17 @@ class Controller(ViktorController):
         weight=params.page_1.weight
         cantenery=params.page_1.cantenery
         height=params.page_1.height
-        result = get_table(span,weight,cantenery,height)
+        table = get_table(span,weight,cantenery,height)
 
         buffer = io.BytesIO()
         with pd.ExcelWriter(buffer) as writer:
-            result.to_excel(writer, sheet_name='Sheet1', index=True)
+            table.to_excel(writer, sheet_name='Sheet1', index=True)
 
         xlsx_value = buffer.getvalue()
 
-        return DownloadResult(File.from_data(xlsx_value), f'output.xlsx')
+        graph = get_graph(table, cantenery, weight)
 
+        return DownloadResult(File.from_data(xlsx_value), f'output.xlsx')
 
 
     # def get_user_manual(self, params, **kwargs):
@@ -88,4 +90,3 @@ class Controller(ViktorController):
     #     plt.close()
 
     #     return ImageAndDataResult(svg_data, data_group)
-
