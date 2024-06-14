@@ -6,7 +6,7 @@ from viktor import ViktorController
 from viktor.core import ViktorController, File, UserError, progress_message
 from viktor.parametrization import ViktorParametrization, FileField, DownloadButton, Page, Text, LineBreak, ActionButton,NumberField
 from viktor.result import DownloadResult
-from viktor.views import ImageResult, ImageView, ImageAndDataView,ImageAndDataResult
+from viktor.views import ImageResult, ImageView, ImageAndDataView,ImageAndDataResult, PlotlyView, PlotlyResult
 from viktor.errors import UserError, InputViolation
 from table import get_table
 import io
@@ -59,7 +59,14 @@ class Controller(ViktorController):
 
         return DownloadResult(File.from_data(xlsx_value), f'output.xlsx')
 
-
+    @PlotlyView("CTC Plot", duration_guess=1)
+    def get_plotly_view(self, params, **kwargs):
+        span=params.page_1.span
+        weight=params.page_1.weight
+        cantenery=params.page_1.cantenery
+        height=params.page_1.height
+        fig=get_fig(span,weight,cantenery)
+        return PlotlyResult(fig)
     # def get_user_manual(self, params, **kwargs):
     #     print(entity_folder_path)
     #     file_path = entity_folder_path + '/cable.pdf'
