@@ -1,4 +1,4 @@
-from math import sinh, cosh, asinh, sqrt, degrees
+from math import sinh, cosh, asinh, sqrt
 
 
 class Computation:
@@ -22,7 +22,6 @@ class Computation:
 
     def compute_asinh(self, value):
         value = asinh(value)
-        # value = degrees(value)
         return value
 
     def compute_xr(self):
@@ -53,7 +52,3 @@ class Computation:
     
     def compute_T(self, V):
         return sqrt(self.H**2 + V**2)
-    
-# computation = Computation(s=300, k=1753.287, h=10, w=15.97)
-
-# print(computation.L_T)

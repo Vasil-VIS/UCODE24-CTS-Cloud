@@ -25,12 +25,9 @@ def get_graph(table, k, w):
     
     t_dict = table.T.to_dict()
     x_values_ranges = {}
-    # print(t_dict)
-    # print(t_dict.keys())
 
     for index in range(len(t_dict['XL'])):
         x_values_ranges[t_dict['h'][index]] = np.linspace(abs(t_dict['Xr'][index]), get_xl(t_dict['XL'][index]), 400)
-        print(abs(t_dict['Xr'][index]), get_xl(t_dict['XL'][index]))
 
     # Plot each range separately
     for i, (key, x_values) in enumerate(x_values_ranges.items()):

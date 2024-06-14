@@ -1,13 +1,9 @@
-from pathlib import Path
 import os
-from io import StringIO
-# import pandas as pd
 from viktor import ViktorController
-from viktor.core import ViktorController, File, UserError, progress_message
-from viktor.parametrization import ViktorParametrization, FileField, DownloadButton, Page, Text, LineBreak, ActionButton,NumberField
+from viktor.core import ViktorController, File
+from viktor.parametrization import ViktorParametrization, DownloadButton, Page, Text, LineBreak,NumberField
 from viktor.result import DownloadResult
-from viktor.views import ImageResult, ImageView, ImageAndDataView,ImageAndDataResult, PlotlyView, PlotlyResult
-from viktor.errors import UserError, InputViolation
+from viktor.views import PlotlyView, PlotlyResult
 from table import get_table
 import io
 import pandas as pd

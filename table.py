@@ -2,9 +2,6 @@ import pandas as pd
 from define_formulas import Computation
 
 def generate_values(s, k, w, h):
-    # s = 300  #Take input from the dashboard
-    # k = 1753.287#1754  #Take input from the dashboard
-    # w = 15.97  #Take input from the dashboard
     comp = Computation(s=s, k=k, h=h, w=w)
     return {
         'Xr': comp.xR,
